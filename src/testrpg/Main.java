@@ -11,10 +11,12 @@ public class Main {
 	private final int DUNGEON = 2;
 	private final int EXIT = 3;
 
-	public StringBuffer buffer = new StringBuffer();
-	public BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-	public BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	public static StringBuffer buffer = new StringBuffer();
+	public static BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+	public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private boolean isRun = true;
+	private Town town = new Town();
+	private Dungeon dungeon = new Dungeon();
 
 	public void run() {
 		while (isRun) {
@@ -25,8 +27,8 @@ public class Main {
 
 	private void printMenu() {
 		buffer.setLength(0);
-		buffer.append("=== test RPG === \n");
-		buffer.append("1)마을 2)던전 3)종료");
+		buffer.append("=== test RPG ===\n");
+		buffer.append("1)마을 2)던전 3)종료\n");
 		try {
 			writer.append(buffer);
 			writer.flush();
@@ -36,14 +38,22 @@ public class Main {
 	}
 
 	private void play() {
-		int sel = input();
+		int sel = input("메뉴 선택: ");
 		if (sel == TOWN) {
-
+			town();
 		} else if (sel == DUNGEON) {
-
+			dungeon();
 		} else if (sel == EXIT) {
 			exit();
 		}
+	}
+
+	private void town() {
+		town.printMenu();
+	}
+
+	private void dungeon() {
+		dungeon.printMenu();
 	}
 
 	private void exit() {
@@ -58,9 +68,11 @@ public class Main {
 		}
 	}
 
-	private int input() {
+	protected static int input(String msg) {
 		int num = -1;
 		try {
+			writer.append(msg);
+			writer.flush();
 			num = Integer.parseInt(reader.readLine());
 			return num;
 		} catch (Exception e) {
