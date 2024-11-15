@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Shop {
-	protected final int WEAPON = 1;
-	protected final int ARMOR = 2;
-	protected final int RING = 3;
+	private final int WEAPON = 1;
+	private final int ARMOR = 2;
+	private final int RING = 3;
 
 	private static Shop instance = new Shop();
 
@@ -42,7 +42,7 @@ public class Shop {
 		}
 	}
 
-	protected void buyMenu() {
+	private void buyMenu() {
 		int i = 1;
 		for (Item item : itemList) {
 			Main.buffer.setLength(0);
@@ -58,7 +58,7 @@ public class Shop {
 		buy(sel);
 	}
 
-	protected void buy(int x) {
+	private void buy(int x) {
 		if (itemList.get(x).getPrice() > player.money || x < 0 || x > 8) {
 			Main.buffer.setLength(0);
 			Main.buffer.append("구매실패\n");
@@ -84,7 +84,7 @@ public class Shop {
 
 	}
 
-	protected void sellMenu() {
+	private void sellMenu() {
 		int i = 1;
 		for (Item item : player.items) {
 			Main.buffer.setLength(0);
@@ -100,7 +100,7 @@ public class Shop {
 		sell(sel);
 	}
 
-	protected void sell(int x) {
+	private void sell(int x) {
 		if (x < 0 || x >= player.items.size()) {
 			Main.buffer.setLength(0);
 			Main.buffer.append("판매실패\n");
