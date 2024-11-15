@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Shop {
-	private final int WEAPON = 1;
-	private final int ARMOR = 2;
-	private final int RING = 3;
-
 	private static Shop instance = new Shop();
 
 	public static Shop getInstance() {
@@ -25,6 +21,7 @@ public class Shop {
 	protected void printMenu() {
 		Main.buffer.setLength(0);
 		Main.buffer.append("=== 더조은상점 === \n");
+		Main.buffer.append(String.format("현재 GOLD: %d\n", player.money));
 		Main.buffer.append("1)구매 2)판매 *)처음으로\n");
 		try {
 			Main.writer.append(Main.buffer);
@@ -54,8 +51,7 @@ public class Shop {
 				e.printStackTrace();
 			}
 		}
-		int sel = Main.input("구매할 상품 선택: ") - 1;
-		buy(sel);
+		buy(Main.input("구매할 상품 선택: ") - 1);
 	}
 
 	private void buy(int x) {
@@ -88,7 +84,7 @@ public class Shop {
 		int i = 1;
 		for (Item item : player.items) {
 			Main.buffer.setLength(0);
-			Main.buffer.append(i++ + "." + item);
+			Main.buffer.append(i++ + "." + item + "\n");
 			try {
 				Main.writer.append(Main.buffer);
 				Main.writer.flush();
@@ -96,8 +92,7 @@ public class Shop {
 				e.printStackTrace();
 			}
 		}
-		int sel = Main.input("판매할 상품 선택(수수료50%): ") - 1;
-		sell(sel);
+		sell(Main.input("판매할 상품 선택(수수료50%): ") - 1);
 	}
 
 	private void sell(int x) {
@@ -127,14 +122,14 @@ public class Shop {
 
 	private void setItem() {
 		itemList.clear();
-		itemList.add(new Item(WEAPON, "나뭇가지", 3, 1000));
-		itemList.add(new Item(WEAPON, "검", 5, 2000));
-		itemList.add(new Item(WEAPON, "마법검", 10, 4000));
-		itemList.add(new Item(ARMOR, "티셔츠", 3, 1000));
-		itemList.add(new Item(ARMOR, "가죽조끼", 5, 2000));
-		itemList.add(new Item(ARMOR, "철갑옷", 10, 4000));
-		itemList.add(new Item(RING, "동반지", 3, 1000));
-		itemList.add(new Item(RING, "은반지", 5, 2000));
-		itemList.add(new Item(RING, "금반지", 10, 4000));
+		itemList.add(new Item(Item.WEAPON, "나뭇가지", 3, 1000));
+		itemList.add(new Item(Item.WEAPON, "검", 5, 2000));
+		itemList.add(new Item(Item.WEAPON, "마법검", 10, 4000));
+		itemList.add(new Item(Item.ARMOR, "티셔츠", 3, 1000));
+		itemList.add(new Item(Item.ARMOR, "가죽조끼", 5, 2000));
+		itemList.add(new Item(Item.ARMOR, "철갑옷", 10, 4000));
+		itemList.add(new Item(Item.RING, "동반지", 3, 1000));
+		itemList.add(new Item(Item.RING, "은반지", 5, 2000));
+		itemList.add(new Item(Item.RING, "금반지", 10, 4000));
 	}
 }
