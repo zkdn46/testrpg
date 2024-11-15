@@ -40,7 +40,6 @@ public class Shop {
 		} else if (sel == 2) {
 			sellMenu();
 		}
-
 	}
 
 	protected void buyMenu() {
@@ -55,7 +54,6 @@ public class Shop {
 				e.printStackTrace();
 			}
 		}
-
 		int sel = Main.input("구매할 상품 선택: ") - 1;
 		buy(sel);
 	}
@@ -98,8 +96,7 @@ public class Shop {
 				e.printStackTrace();
 			}
 		}
-
-		int sel = Main.input("판매할 상품 선택: ") - 1;
+		int sel = Main.input("판매할 상품 선택(수수료50%): ") - 1;
 		sell(sel);
 	}
 
@@ -117,7 +114,7 @@ public class Shop {
 		}
 
 		player.items.remove(x);
-		player.money += player.items.get(x).getPrice();
+		player.money += player.items.get(x).getPrice() / 2;
 		Main.buffer.setLength(0);
 		Main.buffer.append("판매완료\n");
 		try {
