@@ -8,6 +8,10 @@ public abstract class Unit {
 	protected int att;
 	protected int def;
 	protected int level;
+	
+	Unit(){
+		
+	}
 
 	Unit(String name, int level, int hp, int mp, int att, int def) {
 		this.name = name;
