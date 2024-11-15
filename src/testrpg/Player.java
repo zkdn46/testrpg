@@ -68,7 +68,7 @@ public class Player {
 			isRun = false;
 		}
 
-		if (item < 0 || item > items.size()) {
+		if (item < 0 || item >= items.size()) {
 			return;
 		}
 

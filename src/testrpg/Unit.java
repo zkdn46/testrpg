@@ -9,11 +9,11 @@ public abstract class Unit {
 	protected int def;
 	protected int level;
 	
-	Unit(){
+	protected Unit(){
 		
 	}
 
-	Unit(String name, int level, int hp, int mp, int att, int def) {
+	protected Unit(String name, int level, int hp, int mp, int att, int def) {
 		this.name = name;
 		this.level = level;
 		this.hp = hp;

@@ -1,9 +1,9 @@
 package testrpg;
 
 public class Item {
-	protected final int WEAPON = 1;
-	protected final int ARMOR = 2;
-	protected final int RING = 3;
+	protected final static int WEAPON = 1;
+	protected final static int ARMOR = 2;
+	protected final static int RING = 3;
 	
 	private int kind;
 	private String name;
@@ -15,6 +15,14 @@ public class Item {
 		this.name = name;
 		this.power = power;
 		this.price = price;
+	}
+
+	public int getKind() {
+		return kind;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 	public int getPower() {

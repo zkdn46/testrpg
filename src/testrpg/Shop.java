@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 public class Shop {
 	private static Shop instance = new Shop();
-
+	private final int BUY =1;
+	private final int SELL =2;
+	
 	public static Shop getInstance() {
 		return instance;
 	}
@@ -32,9 +34,9 @@ public class Shop {
 
 		int sel = Main.input("메뉴 선택: ");
 
-		if (sel == 1) {
+		if (sel == BUY) {
 			buyMenu();
-		} else if (sel == 2) {
+		} else if (sel == SELL) {
 			sellMenu();
 		}
 	}
