@@ -4,6 +4,18 @@ public class Item {
 	protected final int WEAPON = 1;
 	protected final int ARMOR = 2;
 	protected final int RING = 3;
+	
+	private int kind;
+	private String name;
+	private int power;
+	private int price;
+	
+	protected Item(int kind, String name, int power, int price) {
+		this.kind = kind;
+		this.name = name;
+		this.power = power;
+		this.price = price;
+	}
 
 	public int getPower() {
 		return power;
@@ -11,18 +23,6 @@ public class Item {
 
 	public int getPrice() {
 		return price;
-	}
-
-	private int kind;
-	private String name;
-	private int power;
-	private int price;
-
-	protected Item(int kind, String name, int power, int price) {
-		this.kind = kind;
-		this.name = name;
-		this.power = power;
-		this.price = price;
 	}
 
 	public String toString() {
