@@ -15,8 +15,14 @@ public class Main {
 	public static BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 	public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private boolean isRun = true;
-	private Town town = new Town();
-	private Dungeon dungeon = new Dungeon();
+	private Town town = Town.getInstance();
+	private Dungeon dungeon = Dungeon.getInstance();
+	
+	private static Main instance = new Main();
+
+	public static Main getInstance() {
+		return instance;
+	}
 
 	public void run() {
 		while (isRun) {
