@@ -1,18 +1,9 @@
 package testrpg;
 
 public class Item {
-
 	protected final int WEAPON = 1;
 	protected final int ARMOR = 2;
 	protected final int RING = 3;
-
-	public int getKind() {
-		return kind;
-	}
-
-	public String getName() {
-		return name;
-	}
 
 	public int getPower() {
 		return power;
